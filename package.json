@@ -1,0 +1,25 @@
+{
+  "name": "playwright-project",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test:dev": "cross-env NODE_ENV=dev npx cucumber-js",
+    "test:qa": "cross-env NODE_ENV=qa npx cucumber-js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@cucumber/cucumber": "^11.1.1",
+    "@playwright/test": "^1.49.1",
+    "@types/node": "^22.10.2",
+    "fs-extra": "^11.2.0",
+    "multiple-cucumber-html-reporter": "^3.8.0",
+    "ts-node": "^10.9.2"
+  },
+  "dependencies": {
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.4.7"
+  }
+}

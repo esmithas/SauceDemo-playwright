@@ -1,0 +1,11 @@
+node_modules/
+/test-results/
+/reports
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+.vscode/
+
+#ignorar los .env
+.env*
+!env.example

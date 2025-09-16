@@ -53,5 +53,5 @@ Feature: Proceso de compra exitoso y manejo de credenciales en Sauce Demo
         And ingresa sus datos personales
             | firstName | lastName | postalCode |
             | Esmith    | Doe      | 12345      |
-    And continúa con el proceso de pago
-    Then debería ver un mensaje de confirmación "Thank you for your order!"
+        And continúa con el proceso de pago
+        Then debería ver un mensaje de confirmación "Thank you for your order!"

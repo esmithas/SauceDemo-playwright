@@ -8,7 +8,9 @@ let context: BrowserContext;
 let page: Page;
 
 Before(async function () {
-    browser = await chromium.launch({ headless: false, args: ["--start-maximized"] });
+    browser = await chromium.launch({ 
+        headless: process.env.CI === 'true' ? true : false
+        , args: ["--start-maximized"] });
     context = await browser.newContext({
         viewport: null,
         // recordVideo: {

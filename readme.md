@@ -58,9 +58,50 @@ npm run test:qa -- --tags "@Tag"
 npm run test:dev -- --tags "@Tag"
 ```
 
+## 🤖 GitHub Actions Workflow
+
+El proyecto incluye un workflow automatizado que permite ejecutar pruebas desde GitHub con notificaciones por correo electrónico.
+
+### 🚀 Cómo usar el Workflow
+
+1. **Accede a GitHub Actions**: Ve a la pestaña "Actions" en tu repositorio
+2. **Selecciona el workflow**: "Run Tagged Tests and Publish Report"
+3. **Configura los parámetros**:
+   - **Tag**: Especifica qué pruebas ejecutar (ej: `@smoke`, `@login`, `@regression`)
+   - **Ambiente**: Selecciona entre `qa` o `dev`
+   - **Correo destinatario del reporte**: Especifica el correo donde llegará el reporte
+4. **Ejecuta**: Haz clic en "Run workflow"
+
+### 📧 Notificaciones Automáticas
+
+El workflow envía automáticamente un correo electrónico al destinatorio configurado con:
+- ✅ Resumen de la ejecución
+- 🌍 Ambiente utilizado
+- 🏷️ Tag ejecutado
+- 🔗 Enlace directo al reporte en línea
+
+### 📍 Ubicación del Workflow
+
+El archivo de configuración se encuentra en:
+```
+.github/workflows/test-by-tag.yml
+```
+
+### 🔧 Configuración Requerida
+
+Para que el workflow funcione correctamente, necesitas configurar los siguientes secrets en GitHub:
+
+- `URL_BASE_QA` - URL del ambiente QA
+- `URL_BASE_DEV` - URL del ambiente DEV
+- `GH_PAGES_TOKEN` - Token para GitHub Pages
+- `SMTP_SERVER` - Servidor SMTP para correos
+- `SMTP_PORT` - Puerto del servidor SMTP
+- `EMAIL_USERNAME` - Usuario de correo
+- `EMAIL_PASSWORD` - Contraseña de correo
 
 ## 📊 Reportes
 
+### Reporte Local
 Si deseas generar el reporte HTML ejecuta:
 
 ```bash
@@ -72,6 +113,12 @@ Los reportes se generan al finalizar la ejecución de las pruebas:
 - `reports/html/` - Reporte HTML
 - `reports/cucumber_report.json` - Reporte JSON de Cucumber
 - `reports/evidencies/` - Screenshots de cada paso
+
+### Reporte en Línea (GitHub Pages)
+Los reportes también están disponibles públicamente en:
+**🔗 [https://esmithas.github.io/SauceDemo-playwright/](https://esmithas.github.io/SauceDemo-playwright/)**
+
+Este reporte se actualiza automáticamente cada vez que se ejecuta el workflow de GitHub Actions.
 
 **Nota**: El reporte HTML se genera usando `multiple-cucumber-html-reporter` para un diseño más profesional y detallado.
 
@@ -95,6 +142,9 @@ El proyecto sigue el patrón POM con las siguientes capas:
 - ✅ Screenshots en cada paso
 - ✅ Datos de prueba centralizados
 - ✅ Utilidades comunes
+- ✅ CI/CD con GitHub Actions
+- ✅ Notificaciones automáticas por email
+- ✅ Despliegue automático de reportes
 
 ## 📋 Prerequisitos
 
@@ -108,6 +158,8 @@ El proyecto sigue el patrón POM con las siguientes capas:
 - **Cucumber** - BDD framework
 - **TypeScript** - Lenguaje de programación
 - **Node.js** - Runtime de JavaScript
+- **GitHub Actions** - CI/CD y automatización
+- **GitHub Pages** - Hosting de reportes
 
 ---
 
